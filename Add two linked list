@@ -1,0 +1,46 @@
+        
+        
+        int carry = 0;
+        ListNode p1 = l1;
+        ListNode p2 = l2;
+        
+        //CREATED TO STORE TO FIRST VALUE---
+        
+        SUCH THAT TO RETURN THE HEAD
+        
+        ListNode dummy = new ListNode(0);
+        
+        //CREATED TO STORE THE CURRENT VALUE----WILL INCREASE INCREMENTALLY
+        ListNode curr = dummy;
+        
+        
+        //LOOP TILL BOTH THE CONDITION ARE TRUE
+        while(p1!=null || p2!=null){
+            
+            //MATH PART
+            int x = (p1 != null) ? p1.val : 0;
+            int y = (p2 != null) ? p2.val : 0;
+            int sum = x + y + carry;
+            carry = sum/10;
+            
+            //
+            
+            //SAVE THE VALUE TO TEMPERARY NODE AND ITERATE IT(BASICALLY CREATING A NEW LINKED LIST.)
+            
+            curr.next = new ListNode(sum % 10);
+            curr = curr.next;
+            
+            //ITERATE TO NEXT IF NOT NULL
+            
+            if(p1!=null) p1 = p1.next;
+            if(p2!=null) p2 = p2.next;
+            
+        }
+        
+        //IF SUM INCREASES THE MAX LENGTH OF LONGEST LINKEDLIST
+        
+        if(carry>0){
+            curr.next = new ListNode(carry);
+        }
+        //RETURN THE FIRST VALUE
+        return dummy.next;
