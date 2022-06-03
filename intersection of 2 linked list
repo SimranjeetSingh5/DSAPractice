@@ -1,0 +1,20 @@
+  
+  //COPY TO DUMMY
+    ListNode a = headA;
+    ListNode b = headB;
+    
+    
+//. ITERATE TILL BOTH ARE NOT THE SAME WHEN WE JOIN BOTH----
+WHICH WILL ONLY BE POSSIBLE WHEN THERE IS AN INTERSECTION 
+       while(a!=b){
+
+            if(a==null) a=headB;
+            else a = a.next;
+            
+            if(b==null) b = headA;
+            else b = b.next;
+      
+      }
+      
+      //RETURN NODE OF INTERSECTION.
+      return a;
